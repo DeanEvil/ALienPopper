@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerAvatar
   - Water
   - UI
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Text
     uniqueID: 921632685
+    locked: 0
+  - name: PlayerAvatar
+    uniqueID: 20850829
     locked: 0
