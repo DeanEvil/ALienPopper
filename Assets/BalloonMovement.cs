@@ -1,83 +1,59 @@
-using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BalloonMovement : MonoBehaviour
+public class BalloonController : MonoBehaviour
 {
-    public float moveSpeed = 5f;      // Adjust the speed as needed
-    public float collisionCooldown = 0.5f;  // Cooldown period in seconds
-    public float sizeGrowthRate = 0.1f; // Rate at which the balloon grows per second
-    public float maxSize = 5f; // Maximum size before the balloon disappears
-    private float lastCollisionTime;
-    private bool isBalloonActive = true;
-    private Vector2 currentDirection;
-    private Rigidbody2D rb;
-    private Transform balloonVisual;
-    private Transform balloonCollider;
+    public float moveSpeed = 2.0f;        // Speed of the Balloon's vertical movement
+    public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
+    public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
 
-    void Start()
+    private int moveDirection = 1;        // 1 for moving up, -1 for moving down
+
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        balloonVisual = transform.Find("Visual"); // Assuming the visual is a child named "Visual"
-        balloonCollider = transform.Find("Collider"); // Assuming the collider is a child named "Collider"
-        // Set an initial random direction
-        SetRandomDirection();
+        MoveBalloon();
+        CheckCollision();
+        IncreaseSize();
+        CheckSizeLimit();
     }
 
-    void FixedUpdate()
+    void MoveBalloon()
     {
-        if (isBalloonActive)
+        // Move the Balloon vertically
+        transform.Translate(Vector3.up * moveDirection * moveSpeed * Time.deltaTime);
+    }
+
+    void CheckCollision()
+    {
+        // Check if the Balloon collides with objects tagged as "Obstacle"
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale / 2, 0);
+
+        foreach (Collider2D collider in colliders)
         {
-            // Move the balloon based on the current direction
-            rb.velocity = currentDirection * moveSpeed;
-
-            // Increase the size of the balloon over time
-            IncreaseSize();
-
-            // Check if the balloon exceeds the maximum size
-            if (balloonVisual.localScale.x > maxSize)
+            if (collider.CompareTag("Obstacle"))
             {
-                // Balloon is too big, disappear
-                isBalloonActive = false;
-                // You can add any other effects or actions here
-
-                // Restart the level (you can replace this with any action you want)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // Reverse the direction of the Balloon when collision occurs
+                moveDirection *= -1;
+                break; // Exit the loop after the first collision is detected
             }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Check if the collision is with a 2D collider
-        if (isBalloonActive && collision.collider.CompareTag("Obstacle") && Time.time - lastCollisionTime > collisionCooldown)
-        {
-            // Change direction when colliding with the box collider
-            SetRandomDirection();
-            lastCollisionTime = Time.time;
-        }
-    }
-
-    void SetRandomDirection()
-    {
-        // Generate a random angle between 0 and 360 degrees using UnityEngine.Random
-        float randomAngle = UnityEngine.Random.Range(0f, 360f);
-
-        // Convert the angle to a direction vector
-        currentDirection = new Vector2(Mathf.Cos(randomAngle * Mathf.Deg2Rad), Mathf.Sin(randomAngle * Mathf.Deg2Rad));
-
-        // Set the sprite's rotation based on the new direction
-        float spriteRotation = Mathf.Atan2(currentDirection.y, currentDirection.x) * Mathf.Rad2Deg;
-        balloonVisual.rotation = Quaternion.Euler(0f, 0f, spriteRotation);
-    }
-
     void IncreaseSize()
     {
-        // Increase the size of the balloon over time
-        Vector3 newSize = balloonVisual.localScale + Vector3.one * sizeGrowthRate * Time.deltaTime;
-        balloonVisual.localScale = newSize;
+        // Increase the size of the Balloon over time
+        transform.localScale += new Vector3(sizeIncreaseRate, sizeIncreaseRate, 0) * Time.deltaTime;
+    }
 
-        // Adjust the size of the collider if necessary
-        balloonCollider.localScale = balloonVisual.localScale;
+    void CheckSizeLimit()
+    {
+        // Check if the Balloon size exceeds the specified limit for level restart
+        if (transform.localScale.y > maxSize)
+        {
+            // Add your code here for level restart
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            UnityEngine.Debug.Log("Level Restarted");
+        }
     }
 }
