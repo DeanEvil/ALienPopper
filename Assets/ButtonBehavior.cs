@@ -23,7 +23,7 @@ public class ButtonBehavior : MonoBehaviour
 
     public void GoToInstructions()
     {
-        SceneManager.LoadScene("directions");
+        SceneManager.LoadScene("InfoScreen");
     }
 
     public void PlayGame()
@@ -33,6 +33,11 @@ public class ButtonBehavior : MonoBehaviour
         //store in persistent data
         PersistentData.Instance.SetName(s);
         SceneManager.LoadScene("FirstLevel");
+    }
+
+    public void Settings()
+    {
+        
     }
 
     public void MainMenu()
