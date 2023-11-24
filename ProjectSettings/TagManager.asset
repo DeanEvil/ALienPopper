@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Balloon
   - Bullet
+  - ShowInPauseMode
+  - ShowInResumeMode
   layers:
   - Default
   - TransparentFX
