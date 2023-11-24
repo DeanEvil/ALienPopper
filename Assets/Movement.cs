@@ -99,6 +99,8 @@ public class PlayerController : MonoBehaviour
             float facingDirection = Mathf.Sign(transform.localScale.x);
             pinRb.AddForce(new Vector2(facingDirection, 0f) * pinForce, ForceMode2D.Impulse);
         }
+
+        Destroy(pin, 2f);
     }
 
 }
