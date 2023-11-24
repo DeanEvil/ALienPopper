@@ -9,6 +9,7 @@ public class BalloonController : MonoBehaviour
     public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
     public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
     public AudioClip popSound;
+    public int index = 1;
 
     private Animator popAnimator;
     private float moveDirection = 1.0f;        // 1 for moving up, -1 for moving down
@@ -45,7 +46,8 @@ public class BalloonController : MonoBehaviour
             if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
-                SceneManager.LoadScene("SecondLevel");
+                SceneManager.LoadScene("Level" + index);
+                index++;
             }
         }
     }
