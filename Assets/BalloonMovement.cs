@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,14 +8,17 @@ public class BalloonController : MonoBehaviour
     public float moveSpeed = 2.0f;        // Speed of the Balloon's vertical movement
     public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
     public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
+    public AudioClip popSound;
 
     private Animator popAnimator;
     private int moveDirection = 1;        // 1 for moving up, -1 for moving down
+    private AudioSource audioSource;
 
     void Start()
     {
         // Assuming you have an Animator component attached to the same GameObject as this script
         popAnimator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -42,7 +46,7 @@ public class BalloonController : MonoBehaviour
             {
                 // Reverse the direction of the Balloon when collision occurs
                 moveDirection *= -1;
-                break; // Exit the loop after the first collision is detected
+                break;
             }
             else if (collider.CompareTag("Bullet"))
             {
@@ -74,6 +78,13 @@ public class BalloonController : MonoBehaviour
         if (popAnimator != null)
         {
             popAnimator.SetTrigger("Pop");
+
+            if (audioSource != null && popSound != null)
+            {
+                AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+                GetComponent<AudioSource>().Play();
+            }
+
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, popAnimator.GetCurrentAnimatorClipInfo(0).Length);
         }
