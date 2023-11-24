@@ -333,10 +333,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  pinPrefab: {fileID: 0}
+  pinPrefab: {fileID: 2755239594967446065, guid: 8cd0502f5ebfd8d488ab4decccf63a8b, type: 3}
   jumpForce: 10
-  pinSpawnPoint: {fileID: 0}
+  pinSpawnPoint: {fileID: 1286927701}
   pinForce: 10
+--- !u!4 &1286927701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 560067515129652158, guid: 52bab73e3401cb149b036c570d11477f, type: 3}
+  m_PrefabInstance: {fileID: 1999381334}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1999381334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,6 +409,18 @@ PrefabInstance:
     - target: {fileID: 7684112111194200482, guid: 52bab73e3401cb149b036c570d11477f, type: 3}
       propertyPath: m_Name
       value: LevelScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859202121162622545, guid: 52bab73e3401cb149b036c570d11477f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859202121162622545, guid: 52bab73e3401cb149b036c570d11477f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859202121162622545, guid: 52bab73e3401cb149b036c570d11477f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1788053617
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
