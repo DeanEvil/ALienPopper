@@ -45,6 +45,7 @@ public class BalloonController : MonoBehaviour
             if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
+                SceneManager.LoadScene("SecondLevel");
             }
         }
     }
