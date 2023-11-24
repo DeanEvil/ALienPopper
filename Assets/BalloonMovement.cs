@@ -11,7 +11,7 @@ public class BalloonController : MonoBehaviour
     public AudioClip popSound;
 
     private Animator popAnimator;
-    private int moveDirection = 1;        // 1 for moving up, -1 for moving down
+    private float moveDirection = 1.0f;        // 1 for moving up, -1 for moving down
     private AudioSource audioSource;
 
     void Start()
@@ -42,13 +42,7 @@ public class BalloonController : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Obstacle"))
-            {
-                // Reverse the direction of the Balloon when collision occurs
-                moveDirection *= -1;
-                break;
-            }
-            else if (collider.CompareTag("Bullet"))
+            if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
             }
