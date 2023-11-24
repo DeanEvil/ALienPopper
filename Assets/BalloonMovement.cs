@@ -76,7 +76,6 @@ public class BalloonController : MonoBehaviour
             if (audioSource != null && popSound != null)
             {
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-                GetComponent<AudioSource>().Play();
             }
 
             // Destroy the GameObject after the animation is finished
