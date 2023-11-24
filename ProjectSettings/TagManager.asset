@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Balloon
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet 1 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3449981929616934268, guid: d58c12139e4bf314ebb8ac935e20f856, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 6958924706868794675, guid: d58c12139e4bf314ebb8ac935e20f856, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.10663063

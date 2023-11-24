@@ -8,7 +8,14 @@ public class BalloonController : MonoBehaviour
     public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
     public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
 
+    private Animator popAnimator;
     private int moveDirection = 1;        // 1 for moving up, -1 for moving down
+
+    void Start()
+    {
+        // Assuming you have an Animator component attached to the same GameObject as this script
+        popAnimator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -37,6 +44,10 @@ public class BalloonController : MonoBehaviour
                 moveDirection *= -1;
                 break; // Exit the loop after the first collision is detected
             }
+            else if (collider.CompareTag("Bullet"))
+            {
+                PopBalloon();
+            }
         }
     }
 
@@ -54,6 +65,17 @@ public class BalloonController : MonoBehaviour
             // Add your code here for level restart
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             UnityEngine.Debug.Log("Level Restarted");
+        }
+    }
+
+    void PopBalloon()
+    {
+        // Trigger the "Pop" animation
+        if (popAnimator != null)
+        {
+            popAnimator.SetTrigger("Pop");
+            // Destroy the GameObject after the animation is finished
+            Destroy(gameObject, popAnimator.GetCurrentAnimatorClipInfo(0).Length);
         }
     }
 }
