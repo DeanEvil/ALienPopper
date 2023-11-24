@@ -37,7 +37,7 @@ public class ButtonBehavior : MonoBehaviour
 
     public void Settings()
     {
-        
+        SceneManager.LoadScene("SettingsScene");
     }
 
     public void MainMenu()
