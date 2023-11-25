@@ -6,6 +6,6 @@ using UnityEngine;
 public class RowUi : MonoBehaviour
 {
     public TMP_Text rank;
-    public TMP_Text name;
+    public TMP_Text named;
     public TMP_Text score;
 }

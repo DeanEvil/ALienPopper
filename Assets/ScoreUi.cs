@@ -19,7 +19,7 @@ public class ScoreUI : MonoBehaviour
         {
             var row = Instantiate(rowUi, transform).GetComponent<RowUi>();
             row.rank.text = (i + 1).ToString();
-            row.name.text = scores[i].name;
+            row.named.text = scores[i].named;
             row.score.text = scores[i].score.ToString();
         }
     }
