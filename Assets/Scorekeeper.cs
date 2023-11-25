@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class Scorekeeper : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Scorekeeper : MonoBehaviour
     void Start()
     {
         level = SceneManager.GetActiveScene().buildIndex;
-        score = PersistentData.Instance.GetScore();
+        //score = PersistentData.Instance.GetScore();
         DisplayName();
         DisplayScene();
         DisplayScore();
@@ -35,8 +36,9 @@ public class Scorekeeper : MonoBehaviour
     public void AddPoints(int points)
     {
         score += points;
-        PersistentData.Instance.SetScore(score);
+        UnityEngine.Debug.Log("score: " + score);
         DisplayScore();
+        PersistentData.Instance.SetScore(score);
     }
 
     public void AddPoints()
@@ -47,16 +49,16 @@ public class Scorekeeper : MonoBehaviour
 
     private void DisplayName()
     {
-        nameText.SetText("Hello " + PersistentData.Instance.GetName() + "!");
+        nameText.text = "Hello " + PersistentData.Instance.GetName() + "!";
     }
 
     private void DisplayScore()
     {
-        scoreText.SetText("Score: " + score);
+        scoreText.text = "Score: " + score;
     }
 
     private void DisplayScene()
     {
-        sceneText.SetText("Level: " + level);
+        sceneText.text = "Level: " + level;
     }
 }

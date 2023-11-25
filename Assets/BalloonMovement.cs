@@ -6,6 +6,7 @@ using System.Threading;
 
 public class BalloonController : MonoBehaviour
 {
+    [SerializeField] GameObject controller;
     public float moveSpeed = 2.0f;        // Speed of the Balloon's vertical movement
     public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
     public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
@@ -19,6 +20,10 @@ public class BalloonController : MonoBehaviour
 
     void Start()
     {
+        if (controller == null)
+        {
+            controller = GameObject.FindGameObjectWithTag("GameController");
+        }
         // Assuming you have an Animator component attached to the same GameObject as this script
         popAnimator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -82,12 +87,12 @@ public class BalloonController : MonoBehaviour
             if (balloonSize < 4)
             {
                 // Balloon size is less than 4, add 5 points
-                AddPoints(5);
+                controller.GetComponent<Scorekeeper>().AddPoints(5);
             }
             else if (balloonSize >= 4 && balloonSize < maxSize)
             {
                 // Balloon size is between 4 and 5, add 3 points
-                AddPoints(3);
+                controller.GetComponent<Scorekeeper>().AddPoints(3);
             }
 
             popAnimator.SetTrigger("Pop");
@@ -105,12 +110,6 @@ public class BalloonController : MonoBehaviour
 
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, estimatedAnimTime);
-        }
-
-        void AddPoints(int points)
-        {
-            // Add points logic, you can customize this based on your scoring system
-            FindObjectOfType<Scorekeeper>().AddPoints(points);
         }
     }
         
