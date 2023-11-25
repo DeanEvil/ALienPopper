@@ -7,9 +7,12 @@ using System.Threading;
 public class BalloonController : MonoBehaviour
 {
     [SerializeField] GameObject controller;
-    public float moveSpeed = 2.0f;        // Speed of the Balloon's vertical movement
-    public float maxSize = 5.0f;          // Maximum size of the Balloon before level restart
-    public float sizeIncreaseRate = 0.1f; // Rate at which the Balloon size increases over time
+    public float moveSpeed = 10.0f;        // Speed of the Balloon's vertical movement
+    public float minSize = 3.0f;          //minimal size of balloon
+    public float maxSize = 4.0f;          // Maximum size of the Balloon before level restart
+    public int maxPoints = 5;        //Amount of points if balloon is popped while its size is still less than minSize  
+    public int minPoints = 3;        //Amount of points if balloon is popped while its size is more than minSize  
+    public float sizeIncreaseRate = 0.5f; // Rate at which the Balloon size increases over time
     public AudioClip popSound;
     public int index = 1;
 
@@ -84,14 +87,14 @@ public class BalloonController : MonoBehaviour
         {
             float balloonSize = transform.localScale.y;
 
-            if (balloonSize < 4)
+            if (balloonSize < minSize)
             {
-                // Balloon size is less than 4, add 5 points
-                controller.GetComponent<Scorekeeper>().AddPoints(5);
+                // Balloon size is less than minSize, add  maxPoints
+                controller.GetComponent<Scorekeeper>().AddPoints(maxPoints);
             }
-            else if (balloonSize >= 4 && balloonSize < maxSize)
+            else if (balloonSize >= minSize && balloonSize < maxSize)
             {
-                // Balloon size is between 4 and 5, add 3 points
+                // Balloon size is between minSize and maxSize, add  minPoints
                 controller.GetComponent<Scorekeeper>().AddPoints(3);
             }
 
@@ -102,15 +105,10 @@ public class BalloonController : MonoBehaviour
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
             }
 
-            /*// Adjust the scoring based on the balloon's size
-            int scoreToAdd = (transform.localScale.y < 4f) ? 5 : (transform.localScale.y < 5f) ? 3 : 0;
-
-            // Add the calculated score to the player's total score
-            PersistentData.Instance.SetScore(PersistentData.Instance.GetScore() + scoreToAdd);*/
-
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, estimatedAnimTime);
         }
+
     }
         
 }

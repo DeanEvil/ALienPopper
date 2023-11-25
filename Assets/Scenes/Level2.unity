@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &47475182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7965846889759491394, guid: fd901e6ad79e6154eae4cd35ea1db75a, type: 3}
+  m_PrefabInstance: {fileID: 337773173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &50143017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -401,6 +412,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3419069165563164356, guid: 2ea3c85d60d6e6646bb34c7b1db7658a, type: 3}
+      propertyPath: playerName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5355426327745283734, guid: 2ea3c85d60d6e6646bb34c7b1db7658a, type: 3}
       propertyPath: m_Name
       value: DataObject
@@ -450,6 +465,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ea3c85d60d6e6646bb34c7b1db7658a, type: 3}
+--- !u!114 &1007439039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 204043710144965511, guid: fd901e6ad79e6154eae4cd35ea1db75a, type: 3}
+  m_PrefabInstance: {fileID: 337773173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1031681593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,6 +537,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f9922ccda46024bb0595605bafd839, type: 3}
+--- !u!114 &1179216192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5542902754985830488, guid: fd901e6ad79e6154eae4cd35ea1db75a, type: 3}
+  m_PrefabInstance: {fileID: 337773173}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1278598043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1907592422843765395, guid: fd901e6ad79e6154eae4cd35ea1db75a, type: 3}
@@ -587,6 +624,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1408007540240666397, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1007439039}
+    - target: {fileID: 1408007540240666397, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
+      propertyPath: sceneText
+      value: 
+      objectReference: {fileID: 47475182}
+    - target: {fileID: 1408007540240666397, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1179216192}
     - target: {fileID: 3731504046398552994, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
       propertyPath: m_Name
       value: GameController

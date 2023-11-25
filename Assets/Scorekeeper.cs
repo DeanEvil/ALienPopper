@@ -13,7 +13,6 @@ public class Scorekeeper : MonoBehaviour
     [SerializeField] TMP_Text sceneText;
     [SerializeField] TMP_Text nameText;
     [SerializeField] int level;
-    [SerializeField] int scoreThresholdForThisLevel;
 
     public const int DEFAULT_POINTS = 5;
 
@@ -38,7 +37,7 @@ public class Scorekeeper : MonoBehaviour
         score += points;
         UnityEngine.Debug.Log("score: " + score);
         DisplayScore();
-        PersistentData.Instance.SetScore(score);
+        PersistentData.Instance.SetScore(PersistentData.Instance.GetScore() + score);
     }
 
     public void AddPoints()
@@ -54,7 +53,7 @@ public class Scorekeeper : MonoBehaviour
 
     private void DisplayScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + PersistentData.Instance.GetScore();
     }
 
     private void DisplayScene()
