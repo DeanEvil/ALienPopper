@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class BalloonController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BalloonController : MonoBehaviour
     private Animator popAnimator;
     private float moveDirection = 1.0f;        // 1 for moving up, -1 for moving down
     private AudioSource audioSource;
+    private float estimatedAnimTime = 1.0f;
 
     void Start()
     {
@@ -46,7 +48,6 @@ public class BalloonController : MonoBehaviour
             if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
-                FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
             }
         }
     }
@@ -80,14 +81,24 @@ public class BalloonController : MonoBehaviour
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
             }
 
-            // Adjust the scoring based on the balloon's size
+            /*// Adjust the scoring based on the balloon's size
             int scoreToAdd = (transform.localScale.y < 4f) ? 5 : (transform.localScale.y < 5f) ? 3 : 0;
 
             // Add the calculated score to the player's total score
-            PersistentData.Instance.SetScore(PersistentData.Instance.GetScore() + scoreToAdd);
+            PersistentData.Instance.SetScore(PersistentData.Instance.GetScore() + scoreToAdd);*/
 
             // Destroy the GameObject after the animation is finished
-            Destroy(gameObject, popAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            Destroy(gameObject, estimatedAnimTime);
+            StartCoroutine(WaitForAnimationAndTransition(estimatedAnimTime));
         }
+    }
+
+    IEnumerator WaitForAnimationAndTransition(float delay)
+    {
+        // Wait for the animation to finish
+        yield return new WaitForSeconds(delay);
+
+        // Transition to the next level
+        FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
     }
 }
