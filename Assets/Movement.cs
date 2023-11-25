@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +26,16 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
+    }
+
+    void RestartLevel() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void HandleMovementInput()

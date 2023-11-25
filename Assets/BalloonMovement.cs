@@ -46,8 +46,7 @@ public class BalloonController : MonoBehaviour
             if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
-                SceneManager.LoadScene("Level" + index);
-                index++;
+                FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
             }
         }
     }
@@ -80,6 +79,12 @@ public class BalloonController : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
             }
+
+            // Adjust the scoring based on the balloon's size
+            int scoreToAdd = (transform.localScale.y < 4f) ? 5 : (transform.localScale.y < 5f) ? 3 : 0;
+
+            // Add the calculated score to the player's total score
+            PersistentData.Instance.SetScore(PersistentData.Instance.GetScore() + scoreToAdd);
 
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, popAnimator.GetCurrentAnimatorClipInfo(0).Length);

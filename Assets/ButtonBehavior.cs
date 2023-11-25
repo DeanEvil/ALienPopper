@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Unity.UI;
 using TMPro;
 using System.Diagnostics;
 
@@ -28,11 +27,16 @@ public class ButtonBehavior : MonoBehaviour
 
     public void PlayGame()
     {
-        string s = nameInput.text;
-        UnityEngine.Debug.Log("your name is: " + s);
-        //store in persistent data
-        PersistentData.Instance.SetName(s);
-        SceneManager.LoadScene("FirstLevel");
+        string playerName = nameInput.text;
+        UnityEngine.Debug.Log("Your name is: " + playerName);
+
+        // Store the player's name in persistent data
+        PersistentData.Instance.SetName(playerName);
+
+        // Set the player's score to 0 at the beginning of the game
+        PersistentData.Instance.SetScore(0);
+
+        SceneManager.LoadScene("Level1");
     }
 
     public void Settings()

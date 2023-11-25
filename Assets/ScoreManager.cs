@@ -8,7 +8,8 @@ public class ScoreManager : MonoBehaviour
     private ScoreData sd;
     void Awake()
     {
-        sd = new ScoreData();
+        var json = PlayerPrefs.GetString("scores", "{}");
+        sd = JsonUtility.FromJson<ScoreData>(json);
     }
 
     public IEnumerable<Score> GetHighScores()
@@ -20,4 +21,16 @@ public class ScoreManager : MonoBehaviour
     {
         sd.scores.Add(score);
     }
+
+    private void OnDestroy()
+    {
+        SaveScore();
+    }
+
+    public void SaveScore() 
+    { 
+        var json = JsonUtility.ToJson(sd);
+        PlayerPrefs.SetString("scores", json);
+    }
+
 }

@@ -44,7 +44,7 @@ public class PersistentData : MonoBehaviour
 
     public string GetName()
     {
-        return playerName;
+        return playerName ?? "Anon"; //If player doesn't set a name, they will show as Anon
     }
 
     public int GetScore()

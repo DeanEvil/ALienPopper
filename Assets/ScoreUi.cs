@@ -8,11 +8,22 @@ public class ScoreUI : MonoBehaviour
     public RowUi rowUi;
     public ScoreManager scoreManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager.AddScore(new Score("Ernando", 69));
-        scoreManager.AddScore(new Score("Bozo", 50));
+        if (PersistentData.Instance != null)
+        {
+            string playerName = PersistentData.Instance.GetName();
+            int playerScore = PersistentData.Instance.GetScore();
+
+            scoreManager.AddScore(new Score(playerName, playerScore));
+        }
+        scoreManager.AddScore(new Score("TestDummy1", 30));
+        scoreManager.AddScore(new Score("TestDummy2", 30));
+        scoreManager.AddScore(new Score("TestDummy3", 60));
+        scoreManager.AddScore(new Score("TestDummy4", 40));
+        scoreManager.AddScore(new Score("TestDummy5", 55));
 
         var scores = scoreManager.GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
