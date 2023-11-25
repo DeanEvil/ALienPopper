@@ -48,6 +48,7 @@ public class BalloonController : MonoBehaviour
             if (collider.CompareTag("Bullet"))
             {
                 PopBalloon();
+                FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
             }
         }
     }
@@ -89,16 +90,7 @@ public class BalloonController : MonoBehaviour
 
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, estimatedAnimTime);
-            StartCoroutine(WaitForAnimationAndTransition(estimatedAnimTime));
         }
     }
-
-    IEnumerator WaitForAnimationAndTransition(float delay)
-    {
-        // Wait for the animation to finish
-        yield return new WaitForSeconds(delay);
-
-        // Transition to the next level
-        FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
-    }
+        
 }

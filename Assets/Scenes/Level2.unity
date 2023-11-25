@@ -180,6 +180,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 714c1a4cba73e194f950aa17fb80894b, type: 3}
+--- !u!1 &94908700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3731504046398552994, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
+  m_PrefabInstance: {fileID: 2016914451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &94908701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94908700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47758ab1211f11a4997e2011d8de4f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalBalloons: 0
 --- !u!1 &199826392
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurpBalloon
       objectReference: {fileID: 0}
+    - target: {fileID: 8858715727799694322, guid: 75f9922ccda46024bb0595605bafd839, type: 3}
+      propertyPath: m_TagString
+      value: Balloon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -573,7 +595,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3731504046398552994, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 94908701}
   m_SourcePrefab: {fileID: 100100000, guid: 3f995efea2c60ae4aa61f2f8905663e8, type: 3}
 --- !u!1001 &3069516030169315328
 PrefabInstance:

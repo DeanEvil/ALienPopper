@@ -628,6 +628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurpBalloon
       objectReference: {fileID: 0}
+    - target: {fileID: 8858715727799694322, guid: 75f9922ccda46024bb0595605bafd839, type: 3}
+      propertyPath: m_TagString
+      value: Balloon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
