@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 6036720998466306627, guid: 72c541b5258dbba4cad2c541e2356dd9, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 6036720998466306627, guid: 72c541b5258dbba4cad2c541e2356dd9, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -722,8 +726,8 @@ SceneRoots:
   - {fileID: 879004962}
   - {fileID: 349124549}
   - {fileID: 4184776517454445710}
+  - {fileID: 1068327112}
   - {fileID: 2968315137663107567}
   - {fileID: 1783075564283425028}
   - {fileID: 268198048}
   - {fileID: 516653486}
-  - {fileID: 1068327112}
