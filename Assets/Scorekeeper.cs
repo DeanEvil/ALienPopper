@@ -14,7 +14,7 @@ public class Scorekeeper : MonoBehaviour
     [SerializeField] int level;
     [SerializeField] int scoreThresholdForThisLevel;
 
-    public const int DEFAULT_POINTS = 1;
+    public const int DEFAULT_POINTS = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +37,6 @@ public class Scorekeeper : MonoBehaviour
         score += points;
         PersistentData.Instance.SetScore(score);
         DisplayScore();
-
-        if(score >= scoreThresholdForThisLevel)
-        {
-            SceneManager.LoadScene(level + 1); //level is already 1 less than the index (e.g. 1 instead of 2)
-        }
     }
 
     public void AddPoints()
@@ -52,7 +47,7 @@ public class Scorekeeper : MonoBehaviour
 
     private void DisplayName()
     {
-        nameText.SetText("Hi, " + PersistentData.Instance.GetName() + "!");
+        nameText.SetText("Hello " + PersistentData.Instance.GetName() + "!");
     }
 
     private void DisplayScore()

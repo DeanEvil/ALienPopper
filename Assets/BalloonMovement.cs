@@ -77,6 +77,19 @@ public class BalloonController : MonoBehaviour
         // Trigger the "Pop" animation
         if (popAnimator != null)
         {
+            float balloonSize = transform.localScale.y;
+
+            if (balloonSize < 4)
+            {
+                // Balloon size is less than 4, add 5 points
+                AddPoints(5);
+            }
+            else if (balloonSize >= 4 && balloonSize < maxSize)
+            {
+                // Balloon size is between 4 and 5, add 3 points
+                AddPoints(3);
+            }
+
             popAnimator.SetTrigger("Pop");
 
             if (audioSource != null && popSound != null)
@@ -92,6 +105,12 @@ public class BalloonController : MonoBehaviour
 
             // Destroy the GameObject after the animation is finished
             Destroy(gameObject, estimatedAnimTime);
+        }
+
+        void AddPoints(int points)
+        {
+            // Add points logic, you can customize this based on your scoring system
+            FindObjectOfType<Scorekeeper>().AddPoints(points);
         }
     }
         

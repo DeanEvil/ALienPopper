@@ -19,11 +19,11 @@ public class ScoreUI : MonoBehaviour
 
             scoreManager.AddScore(new Score(playerName, playerScore));
         }
-        scoreManager.AddScore(new Score("TestDummy1", 30));
-        scoreManager.AddScore(new Score("TestDummy2", 30));
-        scoreManager.AddScore(new Score("TestDummy3", 60));
-        scoreManager.AddScore(new Score("TestDummy4", 40));
-        scoreManager.AddScore(new Score("TestDummy5", 55));
+        scoreManager.AddScore(new Score("Dummy1", 0));
+        scoreManager.AddScore(new Score("Dummy2", 0));
+        scoreManager.AddScore(new Score("Dummy3", 0));
+        scoreManager.AddScore(new Score("Dummy4", 0));
+        scoreManager.AddScore(new Score("Dummy5", 0));
 
         var scores = scoreManager.GetHighScores().ToArray();
         for (int i = 0; i < scores.Length; i++)
