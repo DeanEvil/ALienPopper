@@ -40,15 +40,17 @@ public class BalloonController : MonoBehaviour
 
     void CheckCollision()
     {
+
         // Check if the Balloon collides with objects tagged as "Obstacle"
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale / 2, 0);
 
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Bullet"))
-            {
+            {   
+                int level = SceneManager.GetActiveScene().buildIndex;
                 PopBalloon();
-                FindObjectOfType<LevelManager>().BalloonPopped(); // Notify LevelManager
+                SceneManager.LoadScene(level + 1);
             }
         }
     }
