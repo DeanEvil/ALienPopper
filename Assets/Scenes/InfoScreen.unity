@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -415}
+  m_AnchoredPosition: {x: 0, y: -450}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243525758
@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 243525759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1198955555}
+        m_TargetAssemblyTypeName: ButtonBehavior, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &243525759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,10 +451,10 @@ MonoBehaviour:
   m_text: The third level is the most complex. It's the same as the second level,
     but there is now a second balloon in the middle of the screen moving up and down
     between the middle pipe and the top of the screen. There is also a black wall
-    blocking the right opening of the middle pipe. Jump onto the first pipe and then
-    jump again toshoot at the middle balloon to clear the balloon. Then come back
-    down to move towards the third pipe, and jump up to shoot at the balloon to complete
-    the level.
+    blocking the right opening of the middle pipe and a black wall blocking the right
+    opening of the first pipe. Jump onto the first pipe and then jump again toshoot
+    at the middle balloon to clear the balloon. Then come back down to move towards
+    the third pipe, and jump up to shoot at the balloon to complete the level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1180,6 +1192,7 @@ GameObject:
   - component: {fileID: 1198955553}
   - component: {fileID: 1198955552}
   - component: {fileID: 1198955551}
+  - component: {fileID: 1198955555}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1274,6 +1287,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1198955555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198955550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b393c5dface885441aefeead8fd992d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameInput: {fileID: 0}
 --- !u!1 &1340277577
 GameObject:
   m_ObjectHideFlags: 0
