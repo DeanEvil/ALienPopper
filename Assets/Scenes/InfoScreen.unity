@@ -449,12 +449,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: The third level is the most complex. It's the same as the second level,
-    but there is now a second balloon in the middle of the screen moving up and down
-    between the middle pipe and the top of the screen. There is also a black wall
-    blocking the right opening of the middle pipe and a black wall blocking the right
-    opening of the first pipe. Jump onto the first pipe and then jump again toshoot
-    at the middle balloon to clear the balloon. Then come back down to move towards
-    the third pipe, and jump up to shoot at the balloon to complete the level.
+    but there are now two more walls and you spawn to the far left. The first black
+    wall is blocking the left side of the pipe, so you have to jump over it. The
+    second black wall is blocking the right opening of the middle pipe. So you have
+    to slowly walk off the first pipe and approach the far right balloon to jump
+    and shoot at it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -591,19 +590,20 @@ MonoBehaviour:
   m_text: 'You are a soldier who''s training by shooting at mobile balloons for target
     practice in preparation for the alien invasion. You will be scored based on how
     small the balloon is, so if you can shoot the balloon when it''s still less than
-    the size of 4, you get 5 points. Shoot all target(s) to move to the next level.
-    If any target reaches a size of 5, level will restart.
+    the size of 3, you get 5 points. If you shoot while the balloon size is larger
+    than 3 but less than 5, you only get 3 points. Shoot all target(s) to move to
+    the next level. If any target reaches a size of 4, level will restart. If you
+    fall to the ground at an angle, you will be distorted, so walk carefully.
 
+    Press
+    "W" key to jump up                       Press "R" key to restart the level
 
-    Press "W" key to
-    jump up
-
-    Press "A" key to move left
+    Press
+    "A" key to move left
 
     Press "D" key to move right
 
-    Press
-    "E" key to shoot'
+    Press "E" key to shoot'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

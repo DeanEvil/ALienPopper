@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     {
         var json = PlayerPrefs.GetString("scores", "{}");
         sd = JsonUtility.FromJson<ScoreData>(json);
+
+        //sd.scores = new List<Score>(); For clearing out the scoreboard so that testing can be done.
     }
 
     public IEnumerable<Score> GetHighScores()
