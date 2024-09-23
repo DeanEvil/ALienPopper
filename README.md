@@ -13,13 +13,13 @@
 Alien Popper is a 2D game built using Unity. The game leverages various Unity frameworks and modules to provide a seamless gaming experience with interactive 2D physics, particle effects, and scripted visual elements. This README will guide you through the setup process, as well as provide insights into the technologies used and how to contribute to the project.
 
 ## Table of Contents
-* [Project Overview]
-* [Features]
-* [Technologies]
-* [Installation]
-* [Usage]
-* [Contributing]
-* [License]
+* [Project Overview](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#project-overview)
+* [Features](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#features)
+* [Technologies](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#technologies)
+* [Installation](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#installation)
+* [Usage](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#usage)
+* [Contributing](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#contributing)
+* [License](https://github.com/victor-feng-he/AlienPopper/blob/main/README.md#license)
 
 ## Project Overview
 Alien Popper is a 2D platforming game where players shoot at alien balloons for points as they navigate through three game levels, with each one having different obstacles to bypass to get within shooting range of balloons. The game also features a scoreboard that stores the player's name and points in a JSON database, which is saved in-between sessions. With smooth visuals, reactive physics, and custom scripting, the game provides an engaging and dynamic environment for players of all ages.
