@@ -88,6 +88,7 @@ Feel free to make any changes or additions to Alien Popper! If you'd like to add
 2. Create a new branch for your feature or bug fix.
 3. Commit your changes.
 4. Push your changes to your fork and submit a pull request.
-   
+
+You can also refer to this documentation file for more details: https://github.com/victor-feng-he/AlienPopper/blob/main/Alien%20Popper%20Documentation.pdf
 ## License
 This project is licensed under the Personal License.
